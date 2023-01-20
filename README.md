@@ -3,7 +3,7 @@ This repository contains a REST API that serves as the backend for a portfolio w
 
 # Endpoints
 1. /messages: endpoints for managing user messages.
-. /blogs: endpoints for managing blog posts.
+2. /blogs: endpoints for managing blog posts.
 . /profile: endpoints for managing user profile information such as profile picture, skills, and projects.
 #Requirements
 . Node.js
