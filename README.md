@@ -2,7 +2,7 @@
 This repository contains a REST API that serves as the backend for a portfolio website. The API provides different endpoints for managing user messages, blogs, and user profile information.
 
 # Endpoints
-. /messages: endpoints for managing user messages.
+1. /messages: endpoints for managing user messages.
 . /blogs: endpoints for managing blog posts.
 . /profile: endpoints for managing user profile information such as profile picture, skills, and projects.
 #Requirements
