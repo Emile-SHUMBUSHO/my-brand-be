@@ -1,4 +1,4 @@
-import Blog from '../models/Blog'
+import Blog from '../database/models/blog'
 import status from '../config/status'
 
 export default class BlogController{
