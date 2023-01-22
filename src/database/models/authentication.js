@@ -1,5 +1,8 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import 'dotenv/config';
+import * as helper from '../../helpers';
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -33,18 +36,16 @@ export const signup = async (name, email, password) => {
   return user;
 };
 
-
 export const login = async (email, password) => {
-    const user = await User.findOne({ email });
-    if (!user) throw new Error('Invalid email or password');
-  
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) throw new Error('Invalid email or password');
-  
-    return user;
-  };
-  
+  const user = await User.findOne({ email });
+  if (!user) throw new Error("Invalid email or password");
 
-
-
-
+  const isMatch = await bcrypt.compare(password, user.password);
+  if (!isMatch) throw new Error("Invalid email or password");
+  const payload = {
+    id: user._id
+  }
+  const token = helper.token.generate(payload);
+  // const token = jwt.sign({id: user._id}, process.env.SECRET_KEY, {expiresIn: 86400});
+  return {user, token};
+};
