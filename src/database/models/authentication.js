@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
 import 'dotenv/config';
 import * as helper from '../../helpers';
 
