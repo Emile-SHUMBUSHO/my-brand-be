@@ -1,8 +1,8 @@
-import express from 'express'
-import blog from './blog'
+import express from "express";
+import blog from "./blog";
 
-const router = express.Router()
+const router = express.Router();
 
-router.use('/blog', blog)
+router.use("/", blog);
 
-export default router
+export default router;

@@ -46,6 +46,5 @@ export const login = async (email, password) => {
     id: user._id
   }
   const token = helper.token.generate(payload);
-  // const token = jwt.sign({id: user._id}, process.env.SECRET_KEY, {expiresIn: 86400});
   return {user, token};
 };
