@@ -1,8 +1,9 @@
 import express from "express";
-import portfolioAuth from "./portfolioAuth";
+import { loginController, signupController } from "../../controller/auth";
 
 const router = express.Router();
 
-router.use("/", portfolioAuth);
+router.post('/signup', signupController);
+router.post('/login', loginController);
 
 export default router;
