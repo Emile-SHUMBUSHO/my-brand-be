@@ -1,8 +1,10 @@
 import express from "express";
-import api from "./api/blog";
+import portfolio from "./portfolio/blog";
+import auth from "./auth/portfolioAuth";
 
 const router = express.Router();
 
-router.use(api);
+router.use('/', portfolio);
+router.use('/auth', auth);
 
 export default router;
