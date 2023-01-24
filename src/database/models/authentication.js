@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
 import 'dotenv/config';
 import * as helper from '../../helpers';
 
@@ -46,6 +45,5 @@ export const login = async (email, password) => {
     id: user._id
   }
   const token = helper.token.generate(payload);
-  // const token = jwt.sign({id: user._id}, process.env.SECRET_KEY, {expiresIn: 86400});
   return {user, token};
 };
