@@ -3,6 +3,7 @@ import status from "../config/status";
 import cloudinary from "../middlewares/cloudinary";
 
 export const createBlog = async (req, res) => {
+  console.log("welcome to create blog");
   const response = cloudinary.uploader.upload(req.file.path);
   response
     .then((data) => {
@@ -50,7 +51,7 @@ export const singleBlog = (req, res) => {
 
 export const updateBlog = (req, res) => {
   const response = cloudinary.uploader.upload(req.file.path);
-  response.then((blogData)=>{
+  response.then((blogData) => {
     Blog.findByIdAndUpdate(
       req.params.id,
       {
@@ -64,9 +65,8 @@ export const updateBlog = (req, res) => {
         res.json(blog);
       }
     );
-  })
+  });
 };
-
 
 export const deleteBlog = (req, res) => {
   try {
