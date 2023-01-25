@@ -27,7 +27,7 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
-const User = mongoose.model("User", userSchema);
+export const User = mongoose.model("User", userSchema);
 
 export const signup = async (name, email, password) => {
   const user = new User({ name, email, password });
