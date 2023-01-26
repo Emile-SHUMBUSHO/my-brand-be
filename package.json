@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node src/index.js"
+    "start": "npm run build && node ./build/index.js",
+    "dev": "nodemon --exec babel-node src/index.js",
+    "clean": "rd /s /q build && mkdir build",
+    "build-babel": "babel -d ./build src/ -s",
+    "build": "npm run clean && npm run build-babel"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +23,10 @@
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.8.4",
     "multer": "^1.4.5-lts.1",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "swagger": "^0.7.5",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.20.7",
