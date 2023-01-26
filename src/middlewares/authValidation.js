@@ -8,7 +8,9 @@ const signUpSchema = Joi.object({
       /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
     )
   ),
-  password: Joi.string().pattern(new RegExp("^[a-zA-Z0-9]{3,30}$")),
+  password: Joi.string().pattern(
+    new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})")
+  ),
 });
 
 exports.validateSignUp = (req, res, next) => {
@@ -29,10 +31,10 @@ exports.validateSignUp = (req, res, next) => {
 };
 
 exports.validateUniqueUser = async (req, res, next) => {
-  const existingEmail= await User.findOne({ email: req.body.email });
+  const existingEmail = await User?.findOne({ email: req.body.email });
   if (existingEmail) {
     return res.status(409).send({
-      message: `User with ${existingEmail.email} already exists`,
+      message: `User with ${existingEmail?.email} already exists`,
     });
   }
   next();
