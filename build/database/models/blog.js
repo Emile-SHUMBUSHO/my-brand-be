@@ -21,7 +21,7 @@ var BlogSchema = _mongoose["default"].Schema({
   },
   blogImage: {
     type: String,
-    require: true
+    require: false
   },
   date: {
     type: Date,
