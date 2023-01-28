@@ -1,7 +1,6 @@
 import status from "../config/status";
 import * as helper from "../helpers";
 import jwt from "jsonwebtoken";
-
 export const verifyToken = async (req, res, next) => {
   try {
     const authHeader = req.get("Authorization");
