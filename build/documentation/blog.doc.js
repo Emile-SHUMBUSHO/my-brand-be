@@ -9,7 +9,7 @@
  *          requestBody:
  *              description: Provide blog details
  *              content: 
- *                  multipart/form-data:
+ *                  application/json:
  *                      schema:
  *                          type: object
  *                          properties:
@@ -23,7 +23,7 @@
  *                                  type: string
  *                                  required: true
  *                              blogImage:
- *                                  type: file
+ *                                  type: string
  *                                  required: false
  * 
  * 
@@ -37,3 +37,5 @@
  *                  500:
  *                     description: Internal server error
  */
+"use strict";
+//# sourceMappingURL=blog.doc.js.map
