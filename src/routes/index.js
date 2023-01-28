@@ -5,7 +5,7 @@ import auth from "./auth";
 
 const router = express.Router();
 
-router.use('/', blog);
+router.use('/blogs', blog);
 router.use('/', message);
 router.use('/auth', auth);
 
