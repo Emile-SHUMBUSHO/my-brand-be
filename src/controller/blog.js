@@ -1,29 +1,24 @@
 import Blog from "../database/models/blog";
 import status from "../config/status";
-import cloudinary from "../middlewares/cloudinary";
 
 export const createBlog = async (req, res) => {
-  console.log("welcome to create blog");
-  const response = cloudinary.uploader.upload(req.file.path);
-  response
-    .then((data) => {
-      const blog = new Blog({
-        title: req.body.title,
-        description: req.body.description,
-        blogBody: req.body.blogBody,
-        blogImage: data.url,
-      });
-      //Save blog to database
-      blog.save((error) => {
-        if (error) {
-          res.status(status.SERVER_ERROR).json(error);
-        }
-        res.json(blog);
-      });
-    })
-    .catch((err) => {
-      return res.status(status.SERVER_ERROR).json(err);
+  try {
+    const blog = new Blog({
+      title: req.body.title,
+      description: req.body.description,
+      blogBody: req.body.blogBody,
+      imageUrl: req.body.imageUrl,
     });
+    //Save blog to database
+    blog.save((error) => {
+      if (error) {
+        res.status(status.SERVER_ERROR).json(error);
+      }
+      res.json(blog);
+    });
+  } catch (error) {
+    return res.status(status.SERVER_ERROR).json(err);
+  }
 };
 
 export const allBlogs = (req, res) => {
@@ -50,22 +45,23 @@ export const singleBlog = (req, res) => {
 };
 
 export const updateBlog = (req, res) => {
-  const response = cloudinary.uploader.upload(req.file.path);
-  response.then((blogData) => {
+  try {
     Blog.findByIdAndUpdate(
       req.params.id,
       {
         title: req.body.title,
         description: req.body.description,
         blogBody: req.body.blogBody,
-        blogImage: blogData.url,
+        image: req.body.imageUrl,
       },
       (error, blog) => {
         if (error) res.send(error);
         res.json(blog);
       }
     );
-  });
+  } catch (err) {
+    return res.status(status.SERVER_ERROR).json(err);
+  }
 };
 
 export const deleteBlog = (req, res) => {

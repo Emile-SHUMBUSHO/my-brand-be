@@ -5,6 +5,7 @@ const blogSchema = Joi.object({
   title: Joi.string().min(5).max(30).required(),
   description: Joi.string().min(10).max(300).required(),
   blogBody: Joi.string().min(100).max(1000).required(),
+  imageUrl: Joi.string()
 });
 
 
