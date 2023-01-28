@@ -1,1 +1,0 @@
-{"version":3,"file":"index.js","names":[],"sources":["../../../src/helpers/tokens/index.js"],"sourcesContent":["import generate from \"./tokenGenerator\";\r\nimport decode from \"./tokenDecoder\";\r\n\r\nexport { generate, decode };\r\n"],"mappings":";;;;;;;;;;;;;;;;;AAAA;AACA;AAAoC"}
