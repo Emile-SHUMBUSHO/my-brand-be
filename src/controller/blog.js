@@ -52,8 +52,9 @@ export const updateBlog = (req, res) => {
         title: req.body.title,
         description: req.body.description,
         blogBody: req.body.blogBody,
-        image: req.body.imageUrl,
+        imageUrl: req.body.imageUrl,
       },
+      { new: true },
       (error, blog) => {
         if (error) res.send(error);
         res.json(blog);
@@ -66,7 +67,7 @@ export const updateBlog = (req, res) => {
 
 export const deleteBlog = (req, res) => {
   try {
-    Blog.findByIdAndRemove(req.params.id, (error, blog) => {
+    Blog.findByIdAndRemove(req.params.id, { new: true }, (error, blog) => {
       if (error) res.send(error);
       res.json(blog);
     });
