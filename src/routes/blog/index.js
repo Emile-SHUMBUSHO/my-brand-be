@@ -22,7 +22,13 @@ router.post(
 );
 router.get("/", allBlogs);
 router.get("/:id", singleBlog);
-router.put("/update/:id", verifyToken, updateBlog);
+router.put(
+  "/update/:id",
+  verifyToken,
+  validateBlog,
+  validateUniqueBlog,
+  updateBlog
+);
 router.delete("/delete/:id", verifyToken, deleteBlog);
 
 export default router;
