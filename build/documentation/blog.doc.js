@@ -1,7 +1,7 @@
 /**
  * @openapi
  * 
- * /createBlog:
+ * /blogs/createBlog:
  *      post:
  *          security:
  *              - BearerToken: []
@@ -58,6 +58,38 @@
  *          responses:
  *                  200:
  *                      description: A blog retrieved successfully
+ * 
+ * /blogs/update/{id}:
+ *      put:
+ *              security:
+ *                  - BearerToken: []
+ *              tags: [Blog]
+ *              summary: This request will update a blog
+ *              description: Update a blog
+ *              parameters:
+ *                - name: id
+ *                  in: path
+ *                  description: Provide a blog id
+ *                  required: true
+ *              requestBody:
+ *                  description: Provide blog details
+ *                  content: 
+ *                      application/json:
+ *                          schema:
+ *                              type: object
+ *                              properties:
+ *                                  title:
+ *                                      type: string
+ *                                  description:
+ *                                      type: string
+ *                                  blogBody:
+ *                                      type: string
+ *                                  imageUrl:
+ *                                      type: string
+ *              
+ *              responses:
+ *                      200:
+ *                          description: A blog deleted successfully
  * 
  * /blogs/delete/{id}:
  *      delete:
