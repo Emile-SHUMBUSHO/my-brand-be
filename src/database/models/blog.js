@@ -13,9 +13,8 @@ const BlogSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  blogImage: {
+  imageUrl: {
     type: String,
-    require: false,
   },
   date: {
     type: Date,
