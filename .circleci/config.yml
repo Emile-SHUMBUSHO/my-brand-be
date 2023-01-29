@@ -1,0 +1,32 @@
+version: 2.1
+jobs:
+  build:
+    working_directory: ~/MY-BRAND-BE
+    windows:
+      image: windows-2019
+      node: 18.12.1
+    steps:
+      - checkout
+      - run:
+          name: Install Node.js
+          command: choco install nodejs -y
+      - run:
+          name: Install Project Dependencies
+          command: npm ci
+      - run:
+          name: Run Tests
+          command: npm test
+  deploy:
+    working_directory: ~/repo
+    steps:
+      - run:
+          name: Deploy to OnRender
+          command: powershell -File .\deploy-onrender.ps1
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
