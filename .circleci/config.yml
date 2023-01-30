@@ -1,0 +1,12 @@
+version: 2.1
+jobs:
+  test:
+    steps:
+      - checkout
+      - run:
+          name: Run Tests
+          command: npm test
+workflows:
+  run-test-workflow:
+    jobs:
+      - test
