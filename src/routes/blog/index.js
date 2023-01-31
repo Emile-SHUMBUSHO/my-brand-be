@@ -15,9 +15,9 @@ import {
 
 router.post(
   "/createBlog",
-  verifyToken,
-  validateBlog,
-  validateUniqueBlog,
+  // verifyToken,
+  // validateBlog,
+  // validateUniqueBlog,
   createBlog
 );
 router.get("/", allBlogs);

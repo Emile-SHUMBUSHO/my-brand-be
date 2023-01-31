@@ -12,12 +12,14 @@ export const createBlog = async (req, res) => {
     //Save blog to database
     blog.save((error) => {
       if (error) {
-        res.status(status.SERVER_ERROR).json(error);
+        res.status(status.SERVER_ERROR).json({ message: error.message });
       }
-      res.json(blog);
+      res
+        .status(status.CREATED)
+        .json({ message: "Blog created successfully", blog });
     });
   } catch (error) {
-    return res.status(status.SERVER_ERROR).json(err);
+    return res.status(status.BAD_REQUEST).json({ message: error.message });
   }
 };
 

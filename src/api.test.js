@@ -2,9 +2,8 @@ import { signupController, loginController } from "./controller/auth";
 import { signup, login } from "./database/models/authentication";
 
 jest.mock("./database/models/authentication");
-
 describe("signupController", () => {
-  test("it should return a 201 status and the user object if signup is successful", async () => {
+  it("it should return a 201 status and the user object if signup is successful", async () => {
     const req = {
       body: {
         name: "John Doe",
@@ -31,7 +30,7 @@ describe("signupController", () => {
     });
   });
 
-  test("it should return a 400 status and the error message if signup fails", async () => {
+  it("it should return a 400 status and the error message if signup fails", async () => {
     const req = {
       body: {
         name: "John Doe",
@@ -54,7 +53,7 @@ describe("signupController", () => {
 });
 
 describe("loginController", () => {
-  test("it should return a 200 status and the user object if login is successful", async () => {
+  it("it should return a 200 status and the user object if login is successful", async () => {
     const req = {
       body: {
         email: "user@example.com",
@@ -79,7 +78,7 @@ describe("loginController", () => {
     });
   });
 
-  test("it should return a 400 status code and error message if user fails to login", async () => {
+  it("it should return a 400 status code and error message if user fails to login", async () => {
     const req = {
       body: {
         email: "user@example.com",
