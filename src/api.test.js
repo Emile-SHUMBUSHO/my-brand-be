@@ -6,8 +6,8 @@ describe("signupController", () => {
   it("it should return a 201 status and the user object if signup is successful", async () => {
     const req = {
       body: {
-        name: "John Doe",
-        email: "johndoe@example.com",
+        name: "Eric Moize",
+        email: "eric@example.com",
         password: "password123",
       },
     };
@@ -17,8 +17,8 @@ describe("signupController", () => {
     };
 
     signup.mockResolvedValue({
-      name: "John Doe",
-      email: "johndoe@example.com",
+      name: "Eric Moize",
+      email: "eric@example.com",
     });
 
     await signupController(req, res);
@@ -26,15 +26,15 @@ describe("signupController", () => {
     expect(res.status).toHaveBeenCalledWith(201);
     expect(res.json).toHaveBeenCalledWith({
       message: "User created successfully",
-      user: { name: "John Doe", email: "johndoe@example.com" },
+      user: { name: "Eric Moize", email: "eric@example.com" },
     });
   });
 
   it("it should return a 400 status and the error message if signup fails", async () => {
     const req = {
       body: {
-        name: "John Doe",
-        email: "johndoe@example.com",
+        name: "Eric Moize",
+        email: "eric@example.com",
         password: "password123",
       },
     };
@@ -56,8 +56,8 @@ describe("loginController", () => {
   it("it should return a 200 status and the user object if login is successful", async () => {
     const req = {
       body: {
-        email: "user@example.com",
-        password: "password",
+        email: "eric@example.com",
+        password: "password123",
       },
     };
     const res = {
@@ -65,8 +65,8 @@ describe("loginController", () => {
       json: jest.fn(),
     };
     login.mockResolvedValue({
-      email: "user@example.com",
-      password: "password",
+      email: "eric@example.com",
+      password: "password123",
     });
 
     await loginController(req, res);
@@ -74,15 +74,15 @@ describe("loginController", () => {
     expect(res.status).toHaveBeenCalledWith(200);
     expect(res.json).toHaveBeenCalledWith({
       message: "User logged in successfully",
-      user: { email: "user@example.com", password: "password" },
+      user: { email: "eric@example.com", password: "password123" },
     });
   });
 
   it("it should return a 400 status code and error message if user fails to login", async () => {
     const req = {
       body: {
-        email: "user@example.com",
-        password: "password",
+        email: "eric@example.com",
+        password: "password123",
       },
     };
     const res = {
