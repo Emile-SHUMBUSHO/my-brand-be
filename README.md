@@ -15,9 +15,3 @@ This repository contains a REST API that serves as the backend for a portfolio w
 4. The API documentation will be available at `https://shumbusho-emile.onrender.com/docs`
 # Contribution
 If you find any bug or have a new feature request, please open an issue or submit a pull request. Your contribution is always welcome!
-
-# Testing:
-[![](https://circleci.com/gh/circleci/circleci-docs.svg?style=svg?style=svg)](https://app.circleci.com/pipelines/github/Emile-SHUMBUSHO/my-brand-be/26/workflows/a6a94363-d16a-41d4-be33-654d9919c2fd/jobs/9)
-
-# Example:
-[![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=svg)](https://circleci.com/gh/circleci/circleci-docs)
