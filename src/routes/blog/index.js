@@ -18,7 +18,8 @@ router.post(
   // verifyToken,
   // validateBlog,
   // validateUniqueBlog,
-  createBlog
+  createBlog,
+  sendEmailToSubscribers
 );
 router.get("/", allBlogs);
 router.get("/:id", singleBlog);
