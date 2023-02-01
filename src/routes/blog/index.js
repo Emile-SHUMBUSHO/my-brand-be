@@ -15,11 +15,10 @@ import {
 
 router.post(
   "/createBlog",
-  // verifyToken,
-  // validateBlog,
-  // validateUniqueBlog,
+  verifyToken,
+  validateBlog,
+  validateUniqueBlog,
   createBlog,
-  sendEmailToSubscribers
 );
 router.get("/", allBlogs);
 router.get("/:id", singleBlog);
