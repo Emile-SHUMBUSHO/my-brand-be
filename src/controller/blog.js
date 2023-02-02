@@ -1,6 +1,5 @@
 import Blog from "../database/models/blog";
 import status from "../config/status";
-import { notifySubscribers } from "./subscribers";
 
 export const createBlog = async (req, res) => {
   try {
@@ -12,7 +11,6 @@ export const createBlog = async (req, res) => {
     });
     //Save blog to database
     const savedBlog = await blog.save();
-    await notifySubscribers(req, res, savedBlog);
     res
       .status(status.CREATED)
       .json({ message: "Blog created successfully", blog:savedBlog });
