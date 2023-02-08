@@ -1,7 +1,7 @@
-import { signupController, loginController } from "./controller/auth";
-import { signup, login } from "./database/models/authentication";
+import { signupController, loginController } from "../src/controller/auth";
+import { signup, login } from "../src/database/models/authentication";
 
-jest.mock("./database/models/authentication");
+jest.mock("../src/database/models/authentication");
 describe("signupController", () => {
   it("it should return a 201 status and the user object if signup is successful", async () => {
     const req = {
