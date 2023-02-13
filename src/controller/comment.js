@@ -8,7 +8,7 @@ const postComment = async (req, res) => {
       fullName: req.body.fullName,
       email: req.body.email,
       comment: req.body.comment,
-      blogPost: blogId,
+      blog: blogId,
     });
     const BlogPost = await Blog.findById(blogId);
     BlogPost.comments.push(NewComment);
@@ -29,12 +29,15 @@ const postComment = async (req, res) => {
 const getComment = async (req, res) => {
   try {
     const BlogId = req.params.id;
-    const getComment = await Blog.findById(BlogId).populate("comments");
-    if (!getComment) return res.status(404).json({ error: "No Comment Found" });
+    // const getBlog = await Blog.findById(BlogId);
+    const comments = await Comment.find({blog:BlogId})
+    // if (!getComment) return res.status(404).json({ error: "No Comment Found" });
     res.status(200).json({
-      message: "all comments",
-      counter: getComment.comments.length,
-      data: getComment.comments,
+      message: "comments of this blog",
+      // blog: getBlog,
+      comments
+      // counter: getComment.comments.length,
+      // data: getComment.comments,
     });
   } catch (error) {
     res.status(500).json({
