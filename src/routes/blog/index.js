@@ -26,7 +26,6 @@ router.put(
   "/update/:id",
   verifyToken,
   validateBlog,
-  validateUniqueBlog,
   updateBlog
 );
 router.delete("/delete/:id", verifyToken, deleteBlog);
