@@ -16,10 +16,20 @@ const BlogSchema = mongoose.Schema({
   imageUrl: {
     type: String,
   },
+  author:{
+    type: String,
+    required: true 
+  },
   date: {
     type: Date,
     default: Date.now,
   },
+  comments: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Comment",
+    },
+  ],
 });
 
 export default mongoose.model("Blog", BlogSchema);

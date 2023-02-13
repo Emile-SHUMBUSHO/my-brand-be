@@ -1,13 +1,17 @@
 import Blog from "../database/models/blog";
 import status from "../config/status";
+import Users from "../database/models/authentication";
 
 export const createBlog = async (req, res) => {
+  console.log("shsdgdgshdgsgghdgdggdg",req.user.id);
   try {
+    const user =  await Users.findById(req.user.id);
     const blog = new Blog({
       title: req.body.title,
       description: req.body.description,
       blogBody: req.body.blogBody,
       imageUrl: req.body.imageUrl,
+      author: user.name,
     });
     //Save blog to database
     const savedBlog = await blog.save();
